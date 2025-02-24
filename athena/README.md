@@ -46,7 +46,7 @@ Equivalently in native PostgreSQL, this maps as follows.
 select * from <database>.<schema>.<table>;
 ```
 
-See https://docs.aws.amazon.com/athena/latest/ug/understanding-tables-databases-and-the-data-catalog.html
+See [https://docs.aws.amazon.com/athena/latest/ug/understanding-tables-databases-and-the-data-catalog.html](https://umccr.github.io/orcahouse-doc/dbt/)
 
 ### Passthrough query
 
@@ -59,7 +59,7 @@ select * from table(
         ));
 ```
 
-See https://docs.aws.amazon.com/athena/latest/ug/connectors-postgresql.html#connectors-postgres-passthrough-queries
+See [https://docs.aws.amazon.com/athena/latest/ug/connectors-postgresql.html#connectors-postgres-passthrough-queries](https://umccr.github.io/orcahouse-doc/dbt/)
 
 _*Side note: This resembles [GA4GH Data Connect](https://www.google.com/search?q=ga4gh+data+connect) concept. FYI._
 
