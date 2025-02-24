@@ -4,7 +4,7 @@ repos:
     rev: v5.0.0
     hooks:
       - id: check-added-large-files
-        exclude: ^(yarn.lock|.yarn/)
+        exclude: ^(yarn.lock|.yarn/|dbt/)
       - id: check-json
       - id: check-yaml
       - id: detect-aws-credentials
@@ -21,4 +21,4 @@ repos:
       - id: detect-secrets
         name: detect secrets
         args: [ '--baseline', '.secrets.baseline' ]
-        exclude: ^(.venv/|.local/|logs/)|package-lock.yml
+        exclude: ^(.venv/|.local/|logs/|dbt/)|package-lock.yml
