@@ -1,8 +1,15 @@
 # OrcaHouse Documentation
 
-- **Website**: https://umccr.github.io/orcahouse-doc/
-- **GitHub**: https://github.com/umccr/orcahouse-doc
+- **Website**: [https://umccr.github.io/orcahouse-doc/](https://umccr.github.io/orcahouse-doc/)
+- **GitHub**: [https://github.com/umccr/orcahouse-doc](https://umccr.github.io/orcahouse-doc/)
 - **Description**: Documentation for [OrcaHouse](https://github.com/umccr/orcahouse)
+
+## Navigation
+
+* [arch](arch)
+* [athena](athena)
+* [dbt](dbt)
+  * [orcavault](dbt/orcavault)
 
 ## FAQ
 
