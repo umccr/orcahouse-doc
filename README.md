@@ -1,6 +1,8 @@
 # OrcaHouse Documentation
 
-Documentation for [OrcaHouse](https://github.com/umccr/orcahouse)
+- **Website**: https://umccr.github.io/orcahouse-doc/
+- **GitHub**: https://github.com/umccr/orcahouse-doc
+- **Description**: Documentation for [OrcaHouse](https://github.com/umccr/orcahouse)
 
 ## FAQ
 
