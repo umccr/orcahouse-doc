@@ -1,5 +1,7 @@
 # OrcaHouse Athena
 
+> WIP
+
 Please read high level [architecture note](../arch) to understand the overall data flow and data pipeline within warehouse.
 
 **OrcaHouse Athena** follows similar setup from its predecessor [Portal Athena](https://github.com/umccr/data-portal-apis/tree/dev/docs/athena) setup.
@@ -22,7 +24,9 @@ Database:       ods, tsa, psa, raw
 > 
 > For **Developer**;
 > * For general downstream usage, you should consume from `PSA`, `RAW` or `DCL` layer.
-> * Both `ODS` and `TSA` will get full refresh and reload at upstream as well as OrcaVault level. You will need to handle this if used.
+> * Both `ODS` and `TSA` will get breaking schema changes, full refresh and reload at upstream. 
+>   * We solve these issues at OrcaVault (hence, intermediate layers `PSA`, `RAW`, etc.). 
+>   * You will need to handle these if used directly.
 > 
 > For **User**;
 > * Please use the query only as guided by developer. _(Or, you can cross-check with Victor for the moment)_
@@ -33,6 +37,35 @@ Database:       ods, tsa, psa, raw
 
 
 ## Query
+
+- Give me current status about `L2401697`.
+```
+select * from orcavault.tsa.spreadsheet_library_tracking_metadata where library_id = 'L2401697';
+```
+
+- Give me history about `L2401697` as-is Library tracking spreadsheet history. What has been changed? And when?
+```
+select * from orcavault.psa.spreadsheet_library_tracking_metadata where library_id = 'L2401697' order by load_datetime;
+```
+
+- How that has been currently recorded in "post" sequencing run LIMS tracking sheet?
+```
+select * from orcavault.tsa.spreadsheet_google_lims where library_id = 'L2401697';
+```
+
+- Anyone made changes to "post" sequencing run LIMS tracking sheet, since? Show me spreadsheet changes history?
+```
+select * from orcavault.psa.spreadsheet_google_lims where library_id = 'L2401697' order by load_datetime;
+```
+
+- These information flows into pipeline orchestration, the "OrcaBus" and some microservice applications and _legacy_ orchestration systems, etc. All these systems have slightly different perspective about the business key in question (e.g. `LibraryID`).
+- Can we query about how it all linking up, and it gets changed history going through these systems?
+  - Yes, this happens at `RAW_VAULT` layer which is actively developing at the mo. Have a browse to [ERD](../erd) model doc.
+    - Please note though that this `RAW_VAULT` is not the `FINAL` expectation/view of what typically warehouse / reporting user get.
+    - There are another `BUSINESS_VAULT` (or T.B.D models) that is planning to build out of these foundation data layers `PSA`, `RAW`.
+
+
+### Federated query
 
 It is best practise to use full data source pointer when you query.
 
