@@ -23,3 +23,5 @@ They are documented in the following glossary table.
 | DCL   | Data Consolidation Layer              |
 | RAW   | Raw Vault  (Data Vault 2.0)           |
 | DV2   | Data Vault 2.0                        |
+| LDTS  | Load Date Timestamp                   |
+| RSRC  | Record Source                         |

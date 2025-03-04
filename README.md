@@ -8,6 +8,7 @@
 
 * [arch](arch)
 * [athena](athena)
+* [erd](erd)
 * [dbt](dbt)
   * [orcavault](dbt/orcavault)
 
