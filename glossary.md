@@ -14,6 +14,8 @@ They are documented in the following glossary table.
 | EDW   | Enterprise Data Warehouse             | 
 | DWH   | Data Warehouse                        | 
 | BI    | Business Intelligence                 | 
+| DM    | Data Mart                             | 
+| IM    | Information Mart                      | 
 | SQL   | Structured Query Language             | 
 | FDW   | Foreign Data Wrapper                  | 
 | CDC   | Change Data Capture                   | 

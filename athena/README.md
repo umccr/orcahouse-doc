@@ -6,16 +6,12 @@ Please read high level [architecture note](../arch) to understand the overall da
 
 **OrcaHouse Athena** follows similar setup from its predecessor [Portal Athena](https://github.com/umccr/data-portal-apis/tree/dev/docs/athena) setup.
 
-> NOTE: 
-> * During Portal system migration period, you can refer to contents from Portal Athena^^ documentation where applicable.
-> * Eventually, we will migrate Portal Athena documentation to this repo.
-
 Use Athena setting as follows.
 
 ```
 Workgroup:      orcahouse
 Data Source:    orcavault
-Database:       ods, tsa, psa, raw
+Database:       ods, tsa, psa, dcl
 ```
 
 > NOTE: **Early Access Program**
@@ -23,10 +19,10 @@ Database:       ods, tsa, psa, raw
 > * Thera are sudden parts that are stable and, some are still moving targets.
 > 
 > For **Developer**;
-> * For general downstream usage, you should consume from `PSA`, `RAW` or `DCL` layer.
+> * For general downstream usage, you should consume from `PSA`, `DCL` or data mart layer.
 > * Both `ODS` and `TSA` will get breaking schema changes, full refresh and reload at upstream. 
->   * We solve these issues at OrcaVault (hence, intermediate layers `PSA`, `RAW`, etc.). 
->   * You will need to handle these if used directly.
+>   * We resolve and consolidate these issues at OrcaVault data warehouse. From this warehouse, we provide you with "managed" self-service BI and reporting purpose.
+>   * You will need to handle these implications if used them directly.
 > 
 > For **User**;
 > * Please use the query only as guided by developer. _(Or, you can cross-check with Victor for the moment)_
@@ -59,10 +55,10 @@ select * from orcavault.psa.spreadsheet_google_lims where library_id = 'L2401697
 ```
 
 - These information flows into pipeline orchestration, the "OrcaBus" and some microservice applications and _legacy_ orchestration systems, etc. All these systems have slightly different perspective about the business key in question (e.g. `LibraryID`).
-- Can we query about how it all linking up, and it gets changed history going through these systems?
-  - Yes, this happens at `RAW_VAULT` layer which is actively developing at the mo. Have a browse to [ERD](../erd) model doc.
-    - Please note though that this `RAW_VAULT` is not the `FINAL` expectation/view of what typically warehouse / reporting user get.
-    - There are another `BUSINESS_VAULT` (or T.B.D models) that is planning to build out of these foundation data layers `PSA`, `RAW`.
+- Can we query about how it all linking up, and their change history going through these systems?
+  - Yes, this happens at `DCL` layer which is actively developing at the mo. Have a browse to [ERD](../erd) model doc.
+    - Please note though that this `DCL` model is not the final expectation/view of what reporting user get.
+    - There are another data mart (or T.B.D models) that is planning to build out from these foundation data layers `PSA`, `DCL`.
 
 
 ### Federated query
@@ -97,6 +93,10 @@ See [https://docs.aws.amazon.com/athena/latest/ug/connectors-postgresql.html#con
 _*Side note: This resembles [GA4GH Data Connect](https://www.google.com/search?q=ga4gh+data+connect) concept. FYI._
 
 ## Portal Migration
+
+> NOTE: 
+> * During Portal system migration period, you can refer to contents from [Portal Athena](https://github.com/umccr/data-portal-apis/tree/dev/docs/athena) documentation where applicable.
+> * Eventually, we will migrate Portal Athena documentation to this repo, if any.
 
 * All Portal tables are mounted via FDW at ODS database schema.
 * Once Portal is decommissioned, its database will be permanently archived under OrcaVault **PSA** schema.
