@@ -11,7 +11,7 @@ Use Athena setting as follows.
 ```
 Workgroup:      orcahouse
 Data Source:    orcavault
-Database:       ods, tsa, psa, dcl
+Database:       ods, tsa, psa, dcl, mart
 ```
 
 > NOTE: **Early Access Program**
@@ -33,32 +33,6 @@ Database:       ods, tsa, psa, dcl
 
 
 ## Query
-
-- Give me current status about `L2401697`.
-```
-select * from orcavault.tsa.spreadsheet_library_tracking_metadata where library_id = 'L2401697';
-```
-
-- Give me history about `L2401697` as-is Library tracking spreadsheet history. What has been changed? And when?
-```
-select * from orcavault.psa.spreadsheet_library_tracking_metadata where library_id = 'L2401697' order by load_datetime;
-```
-
-- How that has been currently recorded in "post" sequencing run LIMS tracking sheet?
-```
-select * from orcavault.tsa.spreadsheet_google_lims where library_id = 'L2401697';
-```
-
-- Anyone made changes to "post" sequencing run LIMS tracking sheet, since? Show me spreadsheet changes history?
-```
-select * from orcavault.psa.spreadsheet_google_lims where library_id = 'L2401697' order by load_datetime;
-```
-
-- These information flows into pipeline orchestration, the "OrcaBus" and some microservice applications and _legacy_ orchestration systems, etc. All these systems have slightly different perspective about the business key in question (e.g. `LibraryID`).
-- Can we query about how it all linking up, and their change history going through these systems?
-  - Yes, this happens at `DCL` layer which is actively developing at the mo. Have a browse to [ERD](../erd) model doc.
-    - Please note though that this `DCL` model is not the final expectation/view of what reporting user get.
-    - There are another data mart (or T.B.D models) that is planning to build out from these foundation data layers `PSA`, `DCL`.
 
 
 ### Federated query

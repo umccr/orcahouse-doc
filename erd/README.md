@@ -4,6 +4,13 @@
 
 We use [https://github.com/dineug/erd-editor](https://github.com/dineug/erd-editor) tool to keeping tracked of "data model" being developed at different layers of warehouse. The following are recommended setup to visualise ERD model documentation.
 
+## Model
+
+- [orcavault_tsa.erd.json](orcavault/orcavault_tsa.erd.json)
+- [orcavault_psa.erd.json](orcavault/orcavault_psa.erd.json)
+- [orcavault_dcl.erd.json](orcavault/orcavault_dcl.erd.json)
+- [orcavault_mart.erd.json](orcavault/orcavault_mart.erd.json)
+
 ## VSCode
 
 1. Install Visual Studio Code (VSCode)

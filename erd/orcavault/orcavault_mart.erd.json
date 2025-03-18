@@ -1,0 +1,191 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dineug/erd-editor/main/json-schema/schema.json",
+  "version": "3.0.0",
+  "settings": {
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": 0,
+    "scrollLeft": 0,
+    "zoomLevel": 1,
+    "show": 431,
+    "database": 4,
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": 1,
+    "tableNameCase": 4,
+    "columnNameCase": 2,
+    "bracketType": 1,
+    "relationshipDataTypeSync": true,
+    "relationshipOptimization": false,
+    "columnOrder": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "maxWidthComment": -1,
+    "ignoreSaveSettings": 0
+  },
+  "doc": {
+    "tableIds": [
+      "TDSoG2rxmBkHRyMVgttUI"
+    ],
+    "relationshipIds": [],
+    "indexIds": [],
+    "memoIds": []
+  },
+  "collections": {
+    "tableEntities": {
+      "Fji2gJfkvkv3efCur5nY7": {
+        "id": "Fji2gJfkvkv3efCur5nY7",
+        "name": "fct_library",
+        "comment": "",
+        "columnIds": [
+          "08vlixCDVHk__PN9Y7SM-"
+        ],
+        "seqColumnIds": [
+          "08vlixCDVHk__PN9Y7SM-"
+        ],
+        "ui": {
+          "x": 602,
+          "y": 318,
+          "zIndex": 2,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1742267042957,
+          "createAt": 1742235852661
+        }
+      },
+      "us0BKsX9LSogBIJhIANri": {
+        "id": "us0BKsX9LSogBIJhIANri",
+        "name": "",
+        "comment": "",
+        "columnIds": [],
+        "seqColumnIds": [],
+        "ui": {
+          "x": 663,
+          "y": 195,
+          "zIndex": 14,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1742267045456,
+          "createAt": 1742235982642
+        }
+      },
+      "TDSoG2rxmBkHRyMVgttUI": {
+        "id": "TDSoG2rxmBkHRyMVgttUI",
+        "name": "very_nice_mart_here",
+        "comment": "",
+        "columnIds": [
+          "p2vd2Tn9s3iuuoZJNbVGX"
+        ],
+        "seqColumnIds": [
+          "p2vd2Tn9s3iuuoZJNbVGX"
+        ],
+        "ui": {
+          "x": 200,
+          "y": 100,
+          "zIndex": 2,
+          "widthName": 121,
+          "widthComment": 60,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1742269915917,
+          "createAt": 1742269897340
+        }
+      }
+    },
+    "tableColumnEntities": {
+      "08vlixCDVHk__PN9Y7SM-": {
+        "id": "08vlixCDVHk__PN9Y7SM-",
+        "tableId": "Fji2gJfkvkv3efCur5nY7",
+        "name": "",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1742235867537,
+          "createAt": 1742235867537
+        }
+      },
+      "p2vd2Tn9s3iuuoZJNbVGX": {
+        "id": "p2vd2Tn9s3iuuoZJNbVGX",
+        "tableId": "TDSoG2rxmBkHRyMVgttUI",
+        "name": "",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1742269915917,
+          "createAt": 1742269915917
+        }
+      }
+    },
+    "relationshipEntities": {},
+    "indexEntities": {},
+    "indexColumnEntities": {},
+    "memoEntities": {}
+  },
+  "lww": {
+    "Fji2gJfkvkv3efCur5nY7": [
+      "tableEntities",
+      1742235852658,
+      1742267043619,
+      {
+        "name": 1742235885151
+      }
+    ],
+    "08vlixCDVHk__PN9Y7SM-": [
+      "tableColumnEntities",
+      1742235867534,
+      -1,
+      {}
+    ],
+    "us0BKsX9LSogBIJhIANri": [
+      "tableEntities",
+      1742235982641,
+      1742267046234,
+      {}
+    ],
+    "TDSoG2rxmBkHRyMVgttUI": [
+      "tableEntities",
+      1742269897335,
+      -1,
+      {
+        "name": 1742269911617
+      }
+    ],
+    "p2vd2Tn9s3iuuoZJNbVGX": [
+      "tableColumnEntities",
+      1742269915915,
+      -1,
+      {}
+    ]
+  }
+}
