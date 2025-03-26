@@ -30,4 +30,10 @@ We use [https://github.com/dineug/erd-editor](https://github.com/dineug/erd-edit
 - Using the online WebApp version stores changes only in your Browser cache storage. So do any changes made with VSCode IDE.
 - For using ERD editor guide, refer to [https://docs.erd-editor.io/docs/category/guides/](https://docs.erd-editor.io/docs/category/guides/)
 
+## Data Mart
+
+![orcavault_mart.png](orcavault/orcavault_mart.png)
+
+## DCL
+
 ![orcavault_dcl.png](orcavault/orcavault_dcl.png)
