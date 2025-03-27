@@ -1,7 +1,5 @@
 # erd Model Guide
 
-> WIP
-
 We use [https://github.com/dineug/erd-editor](https://github.com/dineug/erd-editor) tool to keeping tracked of "data model" being developed at different layers of warehouse. The following are recommended setup to visualise ERD model documentation.
 
 ## Model
