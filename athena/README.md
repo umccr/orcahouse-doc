@@ -39,7 +39,7 @@ It is best practise to use full data source pointer when you query.
 select * from <data_source>.<database>.<table>;
 ```
 
-Equivalently in native PostgreSQL, this [maps as follows](https://docs.aws.amazon.com/athena/latest/ug/understanding-tables-databases-and-the-data-catalog.html).
+Equivalently in native PostgreSQL, this [maps](https://docs.aws.amazon.com/athena/latest/ug/understanding-tables-databases-and-the-data-catalog.html) as follows.
 
 ```sql
 select * from <database>.<schema>.<table>;
@@ -47,7 +47,7 @@ select * from <database>.<schema>.<table>;
 
 ### Passthrough query
 
-For some reason, if you'd like to run [native passthrough PostgreSQL query](https://docs.aws.amazon.com/athena/latest/ug/connectors-postgresql.html#connectors-postgres-passthrough-queries) statement, you can wrap to `table()` function like so. 
+For some reason, if you'd like to run [passthrough](https://docs.aws.amazon.com/athena/latest/ug/connectors-postgresql.html#connectors-postgres-passthrough-queries) native PostgreSQL query statement, you can wrap to `table()` function like so. 
 
 ```sql
 select * from table(
