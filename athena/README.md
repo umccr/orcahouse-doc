@@ -7,7 +7,7 @@ Use Athena setting as follows.
 ```
 Workgroup:      orcahouse
 Data Source:    orcavault
-Database:       ods, tsa, psa, dcl, mart
+Database:       mart
 ```
 
 ## Query
@@ -52,6 +52,6 @@ For some reason, if you'd like to run [passthrough](https://docs.aws.amazon.com/
 ```sql
 select * from table(
     system.query(
-            query => 'select * from orcavault.raw.hub_library order by load_datetime limit 10'
+            query => 'select * from orcavault.mart.lims order by sequencing_run_date desc limit 10'
         ));
 ```
