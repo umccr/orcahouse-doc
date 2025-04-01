@@ -12,6 +12,8 @@ Database:       mart
 
 ## Query
 
+See model guide [dbt](https://umccr.github.io/orcahouse-doc/dbt/orcavault/#!/model/model.orcavault.lims) and [erd](https://umccr.github.io/orcahouse-doc/erd/) for schema and column details.
+
 ```sql
 select * from orcavault.mart.lims;
 ```
@@ -29,7 +31,23 @@ where
     lims.library_id = 'LPRJ230400' and format = 'ora';
 ```
 
-See model guide [dbt](https://umccr.github.io/orcahouse-doc/dbt/orcavault/#!/model/model.orcavault.lims) and [erd](https://umccr.github.io/orcahouse-doc/erd/) for schema details and more...
+### History query
+
+At some point, you might want to query `fastq_history` table to trace FASTQ file movement i.e. historical locations of the file -- where they have been, when they get deleted and where they are at now. Basically their "effective" time window at the said location.
+
+As best practise; please use predicate filter with `WHERE` or, `LIMIT` clause when querying historical records to prevent over-fetching and, maintain query performance.
+
+Example:
+
+```sql
+select * from orcavault.mart.fastq_history limit 10;
+```
+
+In most cases, you would want to filter by `library_id`.
+
+```sql
+select * from orcavault.mart.fastq_history where library_id = 'L2400519';
+```
 
 ### Federated query
 
