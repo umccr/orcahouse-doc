@@ -73,3 +73,10 @@ select * from table(
             query => 'select * from orcavault.mart.lims order by sequencing_run_date desc limit 10'
         ));
 ```
+
+```sql
+select * from table(
+    system.query(
+            query => 'select * from orcavault.mart.lims where sequencing_run_id = ''250328_A01052_0258_AHFGM7DSXF'' order by sequencing_run_date desc limit 10'
+        ));
+```
