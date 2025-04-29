@@ -9,6 +9,7 @@
 * [arch](arch)
 * [athena](athena)
 * [erd](erd)
+  * [orcavault](erd/orcavault) 
 * [dbt](dbt)
   * [orcavault](dbt/orcavault)
 
@@ -24,15 +25,15 @@ OrcaHouse mainly follows implementation of "[Enterprise Data Warehouse](https://
 
 ### What is OrcaVault?
 
-OrcaVault is the first EDW of OrcaHouse. Its main objective is to build the data warehouse need of our upstream [OrcaBus](https://github.com/umccr/orcabus) system.
+OrcaVault is the first EDW of OrcaHouse. Its main goal is to build the data warehouse need of our upstream [OrcaBus](https://github.com/umccr/orcabus) system.
 
 ### What problem OrcaVault solve?
 
-As mentioned, our upstream [OrcaBus](https://github.com/umccr/orcabus) system is based on "Event-driven" "Microservice" architecture. The system comprises many smaller-sized transactional databases. These microservices may come and go (being replaced) as it pivots to new business requirement. OrcaVault EDW aims to capture, consolidate, observe, archive and history track these changes. Provide business intelligence and audit trail.
+As mentioned, our upstream [OrcaBus](https://github.com/umccr/orcabus) system is based on "Event-driven" "Microservice" architecture. The system comprises many smaller-sized transactional databases. These microservices may come and go (being replaced) as it pivots to new business requirement. OrcaVault EDW aims to capture, consolidate, observe, archive and history track these changes. Provide business intelligence and audit trail. For more details, refer to [README](erd).
 
 ### What is data flow looking like?
 
-Please read high level [architecture note](arch) to understand the overall data flow and data layers within the warehouse.
+Please read the high-level [architecture note](arch) to understand the overall data flow and data layers within the warehouse.
 
 ### What is the federated query interface looking like?
 
