@@ -1,6 +1,6 @@
 # erd Model Guide
 
-We use [https://github.com/dineug/erd-editor](https://github.com/dineug/erd-editor) tool to keeping tracked of "data model" being developed at different layers of warehouse. The following are recommended setup to visualise ERD model documentation.
+We use [https://github.com/dineug/erd-editor](https://github.com/dineug/erd-editor) (Entity Relationship Diagram Editor) tool to keeping tracked of "data model" being developed at different layers of the warehouse. The following are recommended setup to visualise ERD model documentation.
 
 ## Warehouse
 
