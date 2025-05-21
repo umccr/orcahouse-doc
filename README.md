@@ -8,10 +8,12 @@
 
 * [arch](arch)
 * [athena](athena)
+  * [example](athena/example)
 * [erd](erd)
   * [orcavault](erd/orcavault) 
 * [dbt](dbt)
   * [orcavault](dbt/orcavault)
+* [glossary](glossary.md)
 
 ## FAQ
 
