@@ -3,6 +3,7 @@
 <!-- TOC -->
 * [Example 2](#example-2)
   * [Virtual Cohort](#virtual-cohort)
+  * [BAM Inventory](#bam-inventory)
   * [Read Inventory](#read-inventory)
 <!-- TOC -->
 
@@ -28,8 +29,7 @@ from
 where 
     bam.cohort_id = 'wgs-accreditation-prod'
     and bam.format = 'bam'
-    and workflow.workflow_name in ('tumor-normal', 'wgs_tumor_normal')
-;
+    and workflow.workflow_name in ('tumor-normal', 'wgs_tumor_normal');
 ```
 
 ```sql
@@ -42,6 +42,62 @@ select (sum(size) / 1099511627776) as TOTAL_SIZE_TB, count(1) as BAM_FILE_COUNT 
 select (sum(size) / 1099511627776) as TOTAL_SIZE_TB, count(1) as BAM_FILE_COUNT from bam where cohort_id = 'cohort-haem-mdr-prod';
 select (sum(size) / 1099511627776) as TOTAL_SIZE_TB, count(1) as BAM_FILE_COUNT from bam where cohort_id = 'cohort-super-prod';
 select (sum(size) / 1099511627776) as TOTAL_SIZE_TB, count(1) as BAM_FILE_COUNT from bam where cohort_id = 'cohort-pdac-prod';
+```
+
+## BAM Inventory
+
+```sql
+-- find all BAM by given LibraryID
+select 
+    * 
+from bam
+where
+    library_id in ('L2500134', 'L2400667');
+```
+
+_NOTE: SQL [subquery](https://www.google.com/search?q=sql+subquery) demo instead of table [JOIN](https://www.google.com/search?q=sql+JOIN) query._
+```sql
+-- find all BAM by given LIMS InternalSubjectID
+select 
+    * 
+from bam
+where
+    library_id in (
+        select distinct library_id from lims where internal_subject_id = 'SBJ05033'
+    )
+order by portal_run_id;
+```
+
+```sql
+-- total BAM storage size and file count produced by the production workflow
+select
+    workflow.workflow_name as WORKFLOW_NAME,
+    sum(bam.size) / 1099511627776 as BAM_TOTAL_TB,
+    count(bam.filename) as BAM_FILE_COUNT
+from workflow
+    join bam on bam.portal_run_id = workflow.portal_run_id and bam.library_id = workflow.library_id
+where
+    workflow.workflow_status = 'SUCCEEDED'
+    and bam.format = 'bam'
+    and bam.cohort_id = 'production'
+group by workflow.workflow_name
+order by BAM_TOTAL_TB desc;
+```
+
+```sql
+-- total BAM storage size and file count produced by cohort workflow
+select
+    bam.cohort_id as COHORT_ID,
+    workflow.workflow_name as WORKFLOW_NAME,
+    sum(bam.size) / 1099511627776 as BAM_TOTAL_TB,
+    count(bam.filename) as BAM_FILE_COUNT
+from workflow
+    join bam on bam.portal_run_id = workflow.portal_run_id and bam.library_id = workflow.library_id
+where
+    workflow.workflow_status = 'SUCCEEDED'
+    and bam.format = 'bam'
+group by bam.cohort_id, workflow.workflow_name
+order by BAM_TOTAL_TB desc;
 ```
 
 ## Read Inventory

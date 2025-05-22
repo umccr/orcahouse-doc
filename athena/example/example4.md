@@ -5,7 +5,6 @@
   * [Workflow by LibraryID](#workflow-by-libraryid)
   * [Workflow by LIMS Dimension](#workflow-by-lims-dimension)
   * [Workflow and BAM Inventory](#workflow-and-bam-inventory)
-  * [BAM Inventory](#bam-inventory)
   * [Workflow Name](#workflow-name)
     * [IAP](#iap)
     * [ICAv1](#icav1)
@@ -134,30 +133,6 @@ where
     and lims.internal_subject_id = 'SBJ05033';
 ```
 
-## BAM Inventory
-
-```sql
--- find all BAM by given LibraryID
-select 
-    * 
-from bam
-where
-    library_id in ('L2500134', 'L2400667');
-```
-
-_NOTE: SQL [subquery](https://www.google.com/search?q=sql+subquery) demo instead of table [JOIN](https://www.google.com/search?q=sql+JOIN) query._
-```sql
--- find all BAM by given LIMS InternalSubjectID
-select 
-    * 
-from bam
-where
-    library_id in (
-        select distinct library_id from lims where internal_subject_id = 'SBJ05033'
-    )
-order by portal_run_id;
-```
-
 ## Workflow Name
 
 _See the following sections for naming convention across different analysis platform generations._
@@ -190,7 +165,7 @@ TUMOR_NORMAL
 ```
 
 ### ICAv1
-_See https://github.com/umccr/data-portal-apis/tree/dev/docs/pipeline for **legacy** pipeline naming convention_
+_See [https://github.com/umccr/data-portal-apis/tree/dev/docs/pipeline](https://github.com/umccr/data-portal-apis/tree/dev/docs/pipeline) for **legacy** pipeline naming convention_
 
 ```
 bcl_convert
@@ -210,7 +185,7 @@ sash
 ```
 
 ### ICAv2
-_See https://github.com/OrcaBus/wiki/tree/main/orcabus-platform (T.B.D)_
+_See [https://github.com/OrcaBus/wiki/tree/main/orcabus-platform](https://github.com/umccr/data-portal-apis/tree/dev/docs/pipeline) (T.B.D)_
 ```
 BclConvert
 bsshFastqCopy
