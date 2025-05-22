@@ -3,6 +3,7 @@
 <!-- TOC -->
 * [Example 1](#example-1)
   * [Weekly Runs](#weekly-runs)
+  * [Tumor Normal](#tumor-normal)
   * [By Sequencer](#by-sequencer)
   * [Unique Project and Owner](#unique-project-and-owner)
   * [Unique Type and Assay](#unique-type-and-assay)
@@ -89,6 +90,53 @@ where
 ```sql
 -- list all PI/Owner sorted alphabetically and null entries to the last
 select distinct owner_id from lims order by owner_id nulls last;
+```
+
+## Tumor Normal
+
+NOTE:
+* This goes across searching for entries that belong to the InternalSubjectID from multiple sequencing runs. 
+* It assumes InternalSubjectID can group the related samples that have been sequenced by the Centre.
+
+```sql
+-- find me WGS tumor normal pair based on the Centre InternalSubjectID
+select
+    *
+from lims
+where
+    type = 'WGS'
+    and workflow in ('clinical', 'research')
+    and phenotype in ('tumor', 'normal')
+    and internal_subject_id = 'SBJ06470';
+```
+
+```sql
+-- find me WGS tumor normal pair along with FASTQ in ORA format based on the Centre InternalSubjectID
+select
+    *
+from lims
+    join fastq on fastq.sequencing_run_id = lims.sequencing_run_id and fastq.library_id = lims.library_id
+where
+    fastq.format = 'ora'
+    and lims.type = 'WGS'
+    and lims.workflow in ('clinical', 'research')
+    and lims.phenotype in ('tumor', 'normal')
+    and lims.internal_subject_id = 'SBJ06470';
+```
+
+```sql
+-- find me WGS tumor normal pair along with FASTQ in ORA format based on the Centre LibraryID that I have chosen
+select
+    *
+from lims
+    join fastq on fastq.sequencing_run_id = lims.sequencing_run_id and fastq.library_id = lims.library_id
+where
+    fastq.format = 'ora'
+    and lims.type = 'WGS'
+    and lims.workflow in ('clinical', 'research')
+    and lims.phenotype in ('tumor', 'normal')
+    -- and lims.internal_subject_id = 'SBJ06464'
+    and lims.library_id in ('L2500458', 'L2500267');
 ```
 
 ## By Sequencer
