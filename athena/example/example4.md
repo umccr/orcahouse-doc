@@ -185,7 +185,7 @@ sash
 ```
 
 ### ICAv2
-_See [https://github.com/OrcaBus/wiki/tree/main/orcabus-platform](https://github.com/umccr/data-portal-apis/tree/dev/docs/pipeline) (T.B.D)_
+_See [https://github.com/OrcaBus/wiki/tree/main/orcabus-platform](https://github.com/OrcaBus/wiki/tree/main/orcabus-platform) (T.B.D)_
 ```
 BclConvert
 bsshFastqCopy

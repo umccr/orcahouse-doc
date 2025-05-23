@@ -25,7 +25,7 @@ Next. How do this Library's FASTQ files get into this archival location? You can
 
 At some point, you might want to query `fastq_history` table to trace FASTQ file movement i.e., historical locations of the file—where they have been, when they get deleted and where they are at now. Basically their "effective" time window at the said location.
 
-As best practice; please use predicate filter with `WHERE` or, `LIMIT` clause when list the historical records to prevent over-fetching and, maintain query performance.
+As best practice; please use predicate filter with `WHERE` or, `LIMIT` clause when listing the historical records to prevent over-fetching and, maintain query performance.
 
 Example:
 
