@@ -82,7 +82,7 @@ where
 
 ## Function
 
-You can leverage [database function](https://www.google.com/search?q=database+function) where supported. There are plenty of [functions](https://docs.aws.amazon.com/athena/latest/ug/functions-env3.html) supported by AWS Athena as well as PostgresSQL.
+You can leverage [database function](https://www.google.com/search?q=database+function) where supported. There are plenty of [functions](https://docs.aws.amazon.com/athena/latest/ug/functions-env3.html) supported by AWS Athena as well as PostgreSQL.
 
 ```sql
 -- select some string into all uppercase
@@ -96,7 +96,7 @@ select year(cast('2025-02-01' as date));
 
 ## Subquery
 
-https://neon.tech/postgresql/postgresql-tutorial/postgresql-subquery
+[https://neon.tech/postgresql/postgresql-tutorial/postgresql-subquery](https://neon.tech/postgresql/postgresql-tutorial/postgresql-subquery)
 
 ```sql
 -- you can stack up a query within a query, hence, subquery
@@ -112,7 +112,7 @@ where
 
 ## Join
 
-https://neon.tech/postgresql/postgresql-tutorial/postgresql-joins
+[https://neon.tech/postgresql/postgresql-tutorial/postgresql-joins](https://neon.tech/postgresql/postgresql-tutorial/postgresql-joins)
 
 ```sql
 -- or join the two tables on the candidate column(s) that have them merged
@@ -128,7 +128,7 @@ _Recall Venn diagram and Set theory :). And the [cheat sheet](https://www.google
 
 ## CTE
 
-https://neon.tech/postgresql/postgresql-tutorial/postgresql-cte
+[https://neon.tech/postgresql/postgresql-tutorial/postgresql-cte](https://neon.tech/postgresql/postgresql-tutorial/postgresql-cte)
 
 ```sql
 -- how to remember something so that you can reference it in the next step
