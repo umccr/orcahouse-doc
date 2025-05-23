@@ -34,14 +34,12 @@ where
 
 ```sql
 -- list BAM storage size and file count by Cohort
-select (sum(size) / 1099511627776) as TOTAL_SIZE_TB, count(1) as BAM_FILE_COUNT from bam where cohort_id = 'production';
-select (sum(size) / 1099511627776) as TOTAL_SIZE_TB, count(1) as BAM_FILE_COUNT from bam where cohort_id = 'ctdna-tso-v2-6-validation-prod';
-select (sum(size) / 1099511627776) as TOTAL_SIZE_TB, count(1) as BAM_FILE_COUNT from bam where cohort_id = 'wgs-accreditation-prod';
-select (sum(size) / 1099511627776) as TOTAL_SIZE_TB, count(1) as BAM_FILE_COUNT from bam where cohort_id = 'cohort-column-pi-prod';
-select (sum(size) / 1099511627776) as TOTAL_SIZE_TB, count(1) as BAM_FILE_COUNT from bam where cohort_id = 'cohort-brca-atlas-prod';
-select (sum(size) / 1099511627776) as TOTAL_SIZE_TB, count(1) as BAM_FILE_COUNT from bam where cohort_id = 'cohort-haem-mdr-prod';
-select (sum(size) / 1099511627776) as TOTAL_SIZE_TB, count(1) as BAM_FILE_COUNT from bam where cohort_id = 'cohort-super-prod';
-select (sum(size) / 1099511627776) as TOTAL_SIZE_TB, count(1) as BAM_FILE_COUNT from bam where cohort_id = 'cohort-pdac-prod';
+select 
+    (sum(size) / 1099511627776) as TOTAL_SIZE_TB,
+    count(1) as BAM_FILE_COUNT
+from bam 
+where 
+    cohort_id = 'production';
 ```
 
 ## BAM Inventory
@@ -104,12 +102,18 @@ order by BAM_TOTAL_TB desc;
 
 ```sql
 -- total storage size and file count for FASTQ
-select (sum(size) / 1099511627776) as TOTAL_TB, count(1) as FILE_COUNT from fastq;
+select 
+    (sum(size) / 1099511627776) as TOTAL_TB, 
+    count(1) as FILE_COUNT 
+from fastq;
 ```
 
 ```sql
 -- total storage size and file count for BAM
-select (sum(size) / 1099511627776) as TOTAL_TB, count(1) as FILE_COUNT from bam;
+select 
+    (sum(size) / 1099511627776) as TOTAL_TB, 
+    count(1) as FILE_COUNT 
+from bam;
 ```
 
 ```sql
@@ -131,28 +135,53 @@ limit 10;
 ```
 
 ```sql
--- find me all bucket names for FASTQ storage
+-- find me all buckets for FASTQ data storage
 select distinct bucket from fastq;
 ```
 
 ```sql
+-- find me all buckets for BAM data storage
+select distinct bucket from bam;
+```
+
+```sql
 -- find total size and file count from the active pipeline cache bucket for FASTQ
-select (sum(size) / 1099511627776) as TOTAL_SIZE_TB, count(1) as FASTQ_FILE_COUNT from fastq where bucket = 'pipeline-prod-cache-503977275616-ap-southeast-2';
+select 
+    (sum(size) / 1099511627776) as TOTAL_SIZE_TB, 
+    count(1) as FASTQ_FILE_COUNT 
+from fastq 
+where 
+    bucket = 'pipeline-prod-cache-503977275616-ap-southeast-2';
 ```
 
 ```sql
 -- find total size and file count from the pipeline archive bucket for FASTQ
-select (sum(size) / 1099511627776) as TOTAL_SIZE_TB, count(1) as FASTQ_FILE_COUNT from fastq where bucket = 'archive-prod-fastq-503977275616-ap-southeast-2';
+select 
+    (sum(size) / 1099511627776) as TOTAL_SIZE_TB, 
+    count(1) as FASTQ_FILE_COUNT 
+from fastq 
+where 
+    bucket = 'archive-prod-fastq-503977275616-ap-southeast-2';
 ```
 
 ```sql
 -- find me all FASTQ files older than the specified sequencing date in ORA format
-select * from fastq where sequencing_run_date < cast('2024-12-30' as date) and format = 'ora';
+select 
+    * 
+from fastq 
+where
+    format = 'ora'
+    and sequencing_run_date < cast('2024-12-30' as date);
 ```
 
 ```sql
 -- find me all FASTQ files older than the specified sequencing date in GZ format
-select * from fastq where sequencing_run_date < cast('2024-12-30' as date) and format = 'gz';
+select 
+    * 
+from fastq 
+where
+    format = 'gz'
+    and sequencing_run_date < cast('2024-12-30' as date);
 ```
 _NOTE: `cohort_id` for the reasoning about storage context_
 

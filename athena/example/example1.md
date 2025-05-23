@@ -65,7 +65,7 @@ order by sequencing_run_id desc;
 ```
 
 ```sql
--- find all libraries from the project owned by PI on the specified date rage
+-- find all libraries from the project owned by PI on the specified date range
 select
     *
 from lims
@@ -161,6 +161,41 @@ from lims
 where 
     sequencing_run_id like '%A00130%' 
 order by sequencing_run_date desc;
+```
+
+```sql
+-- list all successful sequencing done by "PO" in 2025 sorted the latest first
+select distinct 
+    sequencing_run_id 
+from lims 
+where 
+    sequencing_run_id like '%A01052%' 
+    and year(sequencing_run_date) = 2025
+order by sequencing_run_id desc;
+```
+
+```sql
+-- give me the successful sequencing run count for each year by "PO"
+select
+    year(sequencing_run_date) as YEAR,
+    count(distinct sequencing_run_id) as RUN_COUNT
+from lims 
+where 
+    sequencing_run_id like '%A01052%'
+group by year(sequencing_run_date)
+order by year(sequencing_run_date) desc;
+```
+
+```sql
+-- give me the successful sequencing run count for each year by "Baymax"
+select
+    year(sequencing_run_date) as YEAR,
+    count(distinct sequencing_run_id) as RUN_COUNT
+from lims 
+where 
+    sequencing_run_id like '%A00130%'
+group by year(sequencing_run_date)
+order by year(sequencing_run_date) desc;
 ```
 
 ## Unique Project and Owner
