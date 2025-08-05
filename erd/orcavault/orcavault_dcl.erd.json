@@ -4,8 +4,8 @@
   "settings": {
     "width": 4000,
     "height": 4000,
-    "scrollTop": -1416.3558,
-    "scrollLeft": -609.4312,
+    "scrollTop": -763.1414,
+    "scrollLeft": -746.4105,
     "zoomLevel": 0.8,
     "show": 420,
     "database": 16,
@@ -1873,6 +1873,7 @@
         "comment": "",
         "columnIds": [
           "Wb56c_k_JMuGauABj2Z1Z",
+          "0gdM_WJTE3_1tGIsDay3T",
           "uz9WnBsWNVTg0HVAwH1_t",
           "tSk4HmxMF9j68bY7Cx_dg",
           "Dowbjw7qVbjynChTSCgWm",
@@ -1884,6 +1885,7 @@
         ],
         "seqColumnIds": [
           "Wb56c_k_JMuGauABj2Z1Z",
+          "0gdM_WJTE3_1tGIsDay3T",
           "uz9WnBsWNVTg0HVAwH1_t",
           "tSk4HmxMF9j68bY7Cx_dg",
           "Dowbjw7qVbjynChTSCgWm",
@@ -1903,7 +1905,7 @@
           "color": "#FFC107"
         },
         "meta": {
-          "updateAt": 1747098485663,
+          "updateAt": 1754366254264,
           "createAt": 1743072812099
         }
       },
@@ -13025,6 +13027,26 @@
           "updateAt": 1750200228002,
           "createAt": 1750200208929
         }
+      },
+      "0gdM_WJTE3_1tGIsDay3T": {
+        "id": "0gdM_WJTE3_1tGIsDay3T",
+        "tableId": "cl_UXkUswleAv_So7qAUO",
+        "name": "sequencing_run_sq",
+        "comment": "",
+        "dataType": "char(64)",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 114,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1754366256762,
+          "createAt": 1754366238502
+        }
       }
     },
     "relationshipEntities": {
@@ -14298,9 +14320,9 @@
           "columnIds": [
             "ef4Dl4j5I8SuZQ-Q2gX79"
           ],
-          "x": 1495.3156,
-          "y": 1091.6656,
-          "direction": 4
+          "x": 1420.8156,
+          "y": 1179.6656,
+          "direction": 1
         },
         "end": {
           "tableId": "cl_UXkUswleAv_So7qAUO",
@@ -14308,7 +14330,7 @@
             "Wb56c_k_JMuGauABj2Z1Z"
           ],
           "x": 1272.4564,
-          "y": 754.0126,
+          "y": 778.0126,
           "direction": 8
         },
         "meta": {
@@ -14326,7 +14348,7 @@
           "columnIds": [
             "ef4Dl4j5I8SuZQ-Q2gX79"
           ],
-          "x": 1644.3156,
+          "x": 1569.8156,
           "y": 1091.6656,
           "direction": 4
         },
