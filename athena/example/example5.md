@@ -7,6 +7,7 @@
   * [Subquery](#subquery)
   * [Join](#join)
   * [CTE](#cte)
+  * [Window](#window)
 <!-- TOC -->
 
 
@@ -186,4 +187,51 @@ cte2 as (
 select * from cte1
 union
 select * from cte2;
+```
+
+## Window
+
+_You can use [SQL window functions](https://www.google.com/search?q=SQL+window+functions) query technique to detect (and/or filter) any occurrence of data duplication._
+
+- [https://neon.com/docs/functions/window-rank](https://neon.com/docs/functions/window-rank)
+- [https://github.com/umccr/research-projects/issues/3](https://github.com/umccr/research-projects/issues/3)
+
+```sql
+-- find all succeeded workflow runs by cohort project libraries
+-- additionally rank by timestamp if there exists multiple runs for the library
+with cohort_atlas_wgs_tumor_libraries as (
+    select
+        distinct library_id
+    from
+        mart.lims
+    where
+        project_id = 'ATLAS'
+        and phenotype = 'tumor'
+        and type = 'WGS'
+),
+cohort_atlas_wgs_tn_workflows as (
+    select
+        *
+    from
+        mart.workflow
+    where
+        workflow_status = 'SUCCEEDED'
+        and workflow_name in ('tumor-normal', 'wgs_tumor_normal')
+        and library_id in ( select * from cohort_atlas_wgs_tumor_libraries )
+),
+ranked_cohort_atlas_wgs_tn_workflows as (
+    -- rank by library_id to find out any duplicate runs
+    -- sort by workflow_start timestamp in descending so that the recent one get rank 1
+    select
+        row_number() over (partition by library_id order by workflow_start desc) as rank,
+        *
+    from cohort_atlas_wgs_tn_workflows
+
+)
+select * from ranked_cohort_atlas_wgs_tn_workflows order by library_id;
+```
+
+To filter by `rank` column, add the `WHERE` clause predicate like so:
+```sql
+select * from ranked_cohort_atlas_wgs_tn_workflows where rank = 1 order by library_id;
 ```
