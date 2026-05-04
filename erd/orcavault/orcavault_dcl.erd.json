@@ -4,8 +4,8 @@
   "settings": {
     "width": 4000,
     "height": 4000,
-    "scrollTop": -1435.7629,
-    "scrollLeft": -1839.3639,
+    "scrollTop": -1557.7629,
+    "scrollLeft": -1961,
     "zoomLevel": 0.8,
     "show": 420,
     "database": 16,
@@ -2368,7 +2368,8 @@
           "svmr_af",
           "svmr_filter",
           "svmr_emitted",
-          "QwS1wI6g3O2gDJfX3t-Dh"
+          "QwS1wI6g3O2gDJfX3t-Dh",
+          "9qtx7w7onBpNAN9waPNFb"
         ],
         "ui": {
           "x": 2302.9549,
@@ -2379,7 +2380,7 @@
           "color": "#FFC107"
         },
         "meta": {
-          "updateAt": 1777443253154,
+          "updateAt": 1777443546928,
           "createAt": 1777439778379
         }
       },
@@ -13943,6 +13944,26 @@
         "meta": {
           "updateAt": 1777443250565,
           "createAt": 1777443250565
+        }
+      },
+      "9qtx7w7onBpNAN9waPNFb": {
+        "id": "9qtx7w7onBpNAN9waPNFb",
+        "tableId": "R1ylxSK5wFI6ZKR-Dxb9U",
+        "name": "sat_variant_monitoring_result",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 172,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1777443546042,
+          "createAt": 1777443546041
         }
       }
     },
