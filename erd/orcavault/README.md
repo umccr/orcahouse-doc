@@ -7,10 +7,6 @@
 - [orcavault_dcl.erd.json](orcavault_dcl.erd.json)
 - [orcavault_mart.erd.json](orcavault_mart.erd.json)
 
-### Focused ERDs
-
-- [orcavault_dcl__vmr.erd.json](orcavault_dcl__vmr.erd.json) — DCL context for `sat_variant_monitoring_result` (hub_library, hub_workflow_run, link_library_workflow_run, sat_variant_monitoring_result)
-
 ## Note
 
 - Read overall [data architecture](../../arch).
