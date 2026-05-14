@@ -1,16 +1,24 @@
-# Data Architecture
+# High Level Architecture
 
-The Data Architecture diagram provides a high-level overview of expected data flows.
+## Data Warehouse System Design
+
+* Source: [system_design.drawio](assets/system_design.drawio)
+
+![system_design.gif](assets/system_design.gif)
+
+## Data Architecture
+
+The Data Architecture (abstract) diagram provides a high-level overview of expected data flows.
 
 The OrcaHouse project mainly involves at Data Warehouse and Business Intelligence data stages. 
-
-See [Glossary](../glossary.md) for terms.
 
 ![data_arch.png](assets/data_arch.png)
 
 ## Data Layer
 
-Warehouse data pipeline is organised into high level data layers. Similar to [medallion architecture](https://www.google.com/search?q=medallion+architecture). The upstream data stages are incrementally and progressively improved into downstream data stages.
+See [Glossary](../glossary.md) for terms.
+
+Warehouse data pipeline is organised into high-level data layers. The upstream data stages are incrementally and progressively improved into the downstream data stages.
 
 ![data_layer.png](assets/data_layer.png)
 
